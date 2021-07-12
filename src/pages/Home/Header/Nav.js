@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
     <nav className="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
       <div className="container">
-        <a href="index.html" className="navbar-brand">
+        <Link to="index.html" className="navbar-brand">
           <img src="img/logo.png" alt="" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,49 +22,49 @@ export const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mr-auto w-100 justify-content-end">
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#home">
+              <Link className="nav-link page-scroll" to="#home">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#services">
+              <Link className="nav-link page-scroll" to="#services">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#features">
+              <Link className="nav-link page-scroll" to="#features">
                 Services
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#showcase">
+              <Link className="nav-link page-scroll" to="#showcase">
                 Showcase
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#pricing">
+              <Link className="nav-link page-scroll" to="#pricing">
                 Pricing
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#team">
+              <Link className="nav-link page-scroll" to="#team">
                 Team
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#blog">
+              <Link className="nav-link page-scroll" to="#blog">
                 Blog
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link page-scroll" href="#contact">
+              <Link className="nav-link page-scroll" to="#contact">
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="btn btn-singin" href="#">
+              <Link className="btn btn-singin" to="#">
                 Download
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

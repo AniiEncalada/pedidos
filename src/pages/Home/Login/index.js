@@ -1,5 +1,6 @@
 import React from "react";
 import { LoginForm } from "./LoginForm";
+import pedidos from "../../../assets/images/pedidos.jpg";
 
 export const Login = () => {
   return (
@@ -29,7 +30,7 @@ export const Login = () => {
           <div className="col-lg-1"></div>
           <div className="col-lg-4 col-md-12">
             <div className="contact-img">
-              <img src="img/contact/01.png" className="img-fluid" alt="" />
+              <img src={pedidos} className="img-fluid" alt="" />
             </div>
           </div>
           <div className="col-lg-1"></div>

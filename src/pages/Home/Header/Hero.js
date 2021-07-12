@@ -14,16 +14,16 @@ export const Hero = () => {
             <div className="header-button">
               <a
                 href="https://rebrand.ly/slick-ud"
-                rel="nofollow"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-border-filled"
               >
                 Purchase Now
               </a>
               <a
                 href="https://rebrand.ly/slick-ud"
-                rel="nofollow"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-border page-scroll"
               >
                 Learn More

@@ -5,7 +5,7 @@ import { Input } from "../../../components/Input";
 
 export const LoginForm = () => {
   return (
-    <Form>
+    <Form id="contactForm">
       <Input name="user" placeholder="Ingrese su usuario" />
       <Input type="password" name="password" placeholder="Ingrese su clave" />
       <ActionButton title="Iniciar sesión" />
