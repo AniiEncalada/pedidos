@@ -2,7 +2,7 @@ import React from "react";
 import { Hero } from "./Hero";
 import { Nav } from "./Nav";
 
-export const Header = () => {
+export const Header = ({ withHero = false }) => {
   return (
     <header id="home" className="hero-area">
       <div className="overlay">
@@ -10,7 +10,7 @@ export const Header = () => {
         <span></span>
       </div>
       <Nav />
-      <Hero />
+      {withHero && <Hero />}
     </header>
   );
 };

@@ -7,7 +7,7 @@ export const Input = ({ name, register, ...rest }) => {
       className="form-control"
       id={name}
       name={name}
-      {...register(name)}
+      // {...register(name)}
       {...rest}
     />
   );
