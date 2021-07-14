@@ -4,35 +4,38 @@ import pedidos from "../../../assets/images/pedidos.jpg";
 
 export const Login = () => {
   return (
-    <section id="contact" className="section">
+    <section className="section">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="contact-text section-header text-center">
+            <div className="section-header text-center">
               <div>
-                <h2 className="section-title">Get In Touch</h2>
+                <h2 className="section-title">Iniciar Sesión</h2>
                 <div className="desc-text">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do
+                    A continuación ingresa tus credenciales para acceder a las
+                    funcionalidades del sistema.
                   </p>
-                  <p>eiusmod tempor incididunt ut labore et dolore.</p>
+                  <p>¡Comencemos!</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <div className="row">
           <div className="col-lg-6 col-md-12">
-            {/* Login Form */}
             <LoginForm />
           </div>
+
           <div className="col-lg-1"></div>
+
           <div className="col-lg-4 col-md-12">
-            <div className="contact-img">
+            <div className="login-img">
               <img src={pedidos} className="img-fluid" alt="" />
             </div>
           </div>
+
           <div className="col-lg-1"></div>
         </div>
       </div>

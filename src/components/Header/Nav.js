@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Headroom from "headroom.js";
+
+import logo from "../../assets/images/logo.png";
 
 export const Nav = () => {
+  useEffect(() => {
+    let headroom = new Headroom(document.getElementById("navbar-main"));
+    headroom.init();
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+    <nav
+      className="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar headroom"
+      id="navbar-main"
+    >
       <div className="container">
         <Link to="index.html" className="navbar-brand">
-          <img src="img/logo.png" alt="" />
+          <img src={logo} alt="" />
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -19,51 +31,24 @@ export const Nav = () => {
         >
           <i className="lni-menu"></i>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mr-auto w-100 justify-content-end">
             <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#home">
-                Home
+              <Link className="nav-link page-scroll" to="/">
+                Principal
               </Link>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#services">
-                About
+              <Link className="nav-link page-scroll" to="/perfil">
+                Perfil
               </Link>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#features">
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#showcase">
-                Showcase
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#pricing">
-                Pricing
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#team">
-                Team
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#blog">
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link page-scroll" to="#contact">
-                Contact
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="btn btn-singin" to="#">
-                Download
+              <Link className="btn btn-singin" to="#login">
+                Comenzar
               </Link>
             </li>
           </ul>

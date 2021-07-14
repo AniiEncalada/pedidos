@@ -9,14 +9,14 @@ export const Profile = () => {
   return (
     <Fragment>
       <Header />
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="contact-text section-header text-center">
+      <section className="section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="section-header text-center">
                 <div>
-                  <h2 class="section-title">Perfil de usuario</h2>
-                  <div class="desc-text">
+                  <h2 className="section-title">Perfil de usuario</h2>
+                  <div className="desc-text">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do
@@ -28,20 +28,20 @@ export const Profile = () => {
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
+          <div className="row">
+            <div className="col-lg-6 col-md-12">
+              <h6 className="text-muted mb-4">Datos de Usuario</h6>
               <ProfileForm />
-              <hr />
+              <hr className="my-4" />
+              <h6 className="text-muted mb-4">Actualizar contraseña</h6>
               <PasswordForm />
             </div>
-            <div class="col-lg-1"></div>
+            <div className="col-lg-1"></div>
 
-            <div class="col-lg-4 col-md-12">
-              <div class="contact-img">
-                <img src={avatar} class="img-fluid" alt="" />
-              </div>
+            <div className="col-lg-4 col-md-12">
+              <img src={avatar} className="img-fluid" alt="" />
             </div>
-            <div class="col-lg-1"></div>
+            <div className="col-lg-1"></div>
           </div>
         </div>
       </section>

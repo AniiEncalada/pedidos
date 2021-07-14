@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+
 export const Form = ({ defaultValues, children, onSubmit, ...rest }) => {
   const { handleSubmit, register } = useForm({ defaultValues });
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} {...rest}>
       {Array.isArray(children)

@@ -1,15 +1,30 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+
 import { ActionButton } from "../../components/Button";
-import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
 
 export const PasswordForm = () => {
+  const { handleSubmit } = useForm();
+
+  const onSubmit = (data) => {};
+
   return (
-    <Form id="contactForm">
-      <Input name="password" placeholder="Clave actual" />
-      <Input name="newPassword" placeholder="Nueva clave" />
-      <Input name="confirmPassword" placeholder="Confirmar clave" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="form-group">
+        <Input type="password" name="password" placeholder="Clave actual" />
+      </div>
+      <div className="form-group">
+        <Input type="password" name="newPassword" placeholder="Nueva clave" />
+      </div>
+      <div className="form-group">
+        <Input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmar clave"
+        />
+      </div>
       <ActionButton title="Actualizar" />
-    </Form>
+    </form>
   );
 };

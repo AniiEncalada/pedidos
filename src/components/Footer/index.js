@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import logo from "../../assets/images/logo.png";
+
 export const Footer = () => {
   return (
     <footer>
@@ -9,7 +11,7 @@ export const Footer = () => {
           <div className="row">
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
               <div className="footer-logo">
-                <img src="img/footer-logo.png" alt="" />
+                <img src={logo} alt="" />
               </div>
             </div>
 
@@ -48,9 +50,6 @@ export const Footer = () => {
                   </li>
                   <li>
                     <Link to="#">- Scurity</Link>
-                  </li>
-                  <li>
-                    <Link to="#">- Why SLICK?</Link>
                   </li>
                 </ul>
               </div>
@@ -107,9 +106,9 @@ export const Footer = () => {
               <div className="col-md-12">
                 <div className="site-info text-center">
                   <p>
-                    Crafted by
-                    <Link to="http://uideck.com" rel="nofollow">
-                      UIdeck
+                    Creado por{" "}
+                    <Link to="/" rel="nofollow">
+                      Pedidos
                     </Link>
                   </p>
                 </div>
