@@ -1,9 +1,13 @@
 import React, { Fragment } from "react";
+
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+
 import { ProfileForm } from "./ProfileForm";
-import avatar from "../../assets/images/profile.png";
 import { PasswordForm } from "./PasswordForm";
+import { Address } from "./Address";
+
+import avatar from "../../assets/images/profile.png";
 
 export const Profile = () => {
   return (
@@ -42,6 +46,15 @@ export const Profile = () => {
               <img src={avatar} className="img-fluid" alt="" />
             </div>
             <div className="col-lg-1"></div>
+          </div>
+
+          <hr className="my-4" />
+
+          <div className="row">
+            <div className="col-12">
+              <h6 className="text-muted">Direcciones</h6>
+              <Address />
+            </div>
           </div>
         </div>
       </section>

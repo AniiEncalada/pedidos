@@ -8,6 +8,7 @@ export const Input = ({ name, register, ...rest }) => {
       id={name}
       name={name}
       // {...register(name)}
+      autoComplete="off"
       {...rest}
     />
   );

@@ -61,7 +61,6 @@ h3,
 h4,
 h5 {
   font-family: "Poppins", sans-serif;
-  font-size: 40px;
   font-weight: 400;
   color: #151948;
 }
@@ -158,19 +157,17 @@ a:not([href]):not([tabindex]):hover {
   outline: none;
 }
 
+.btn:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .btn-common {
   background-color: var(--accent);
   position: relative;
   z-index: 1;
   box-shadow: 0px 8px 9px 0px rgba(96, 94, 94, 0.17);
-  width: 160px;
-  height: 50px;
   padding: 14px 15px;
-}
-
-.btn-common:hover {
-  color: #fff;
-  transform: translateY(-2px);
 }
 
 .btn-light-bg {
@@ -515,7 +512,12 @@ button:focus {
 }
 
 .navbar-brand {
+  height: 70px;
   color: #fff;
+}
+
+.navbar-brand img {
+  height: 100%;
 }
 
 .navbar-expand-md .navbar-nav .nav-link:focus,
@@ -1022,7 +1024,13 @@ form .form-control:focus {
   padding-top: 130px;
   background: var(--blank);
 }
+
+#footer-Content .footer-logo {
+  height: 15em;
+}
+
 #footer-Content .footer-logo img {
+  height: 100%;
   padding-top: 70px;
 }
 #footer-Content .form-control:focus {
