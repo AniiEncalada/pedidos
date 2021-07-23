@@ -11,4 +11,12 @@ export const interceptors = () => {
     },
     (error) => Promise.reject(error)
   );
+  axios.interceptors.response.use((response) => {
+    const { data } = response;
+    if (data.status === "warning") {
+      return Promise.reject(data);
+    }
+    console.log(response);
+    return response;
+  });
 };

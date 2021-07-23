@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
+import { auth } from "./auth.reducer";
 
-const appReducer = combineReducers({});
+const appReducer = combineReducers({ auth });
 
 const reducer = (state, action) => {
   if (action.type === "logout") {

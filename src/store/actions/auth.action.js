@@ -1,12 +1,24 @@
 import { authService } from "store/services/auth.service";
 import { AUTH_ACTIONS } from "utils/actionTypes";
+import { alerts } from "utils/alerts";
+import { ACCESS_TOKEN } from "utils/constants";
+import { history } from "utils/history";
 
 export const login = (formData) => async (dispatch) => {
   try {
     dispatch(request());
-    const { data } = await authService(formData);
+    const { _id, token } = JSON.parse(ACCESS_TOKEN);
+    console.log(ACCESS_TOKEN);
+    const { data } = await authService.login({
+      ...formData,
+      verify: _id,
+      token,
+    });
+    alerts.success(data.message);
+    history.push("/perfil");
     dispatch(success(data));
   } catch (error) {
+    alerts.warning(error.message);
     dispatch(failure(error));
   }
 

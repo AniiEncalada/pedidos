@@ -1,19 +1,23 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-  Route,
-} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Router, Switch, Redirect, Route } from "react-router-dom";
+import { PrivateRoute } from "router/PrivateRoute";
+import { history } from "utils/history";
 import { Home } from "../pages/Home";
 import { Profile } from "../pages/Profile";
 
 export const AppRouter = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/perfil" component={Profile} />
+        <PrivateRoute
+          exact
+          path="/perfil"
+          component={Profile}
+          loggedIn={loggedIn}
+        />
         <Redirect to="/" />
       </Switch>
     </Router>

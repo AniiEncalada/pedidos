@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 
 import logo from "../../assets/images/logo-white.png";
+import { useSelector } from "react-redux";
 
 export const Nav = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
   useEffect(() => {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     headroom.init();
@@ -46,11 +48,13 @@ export const Nav = () => {
               </Link>
             </li>
 
-            <li className="nav-item">
-              <Link className="btn btn-singin" to="#login">
-                Comenzar
-              </Link>
-            </li>
+            {!loggedIn && (
+              <li className="nav-item">
+                <Link className="btn btn-singin" to="#login">
+                  Comenzar
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
