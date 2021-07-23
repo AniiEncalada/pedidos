@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-white.png";
 
 export const Footer = () => {
   return (
@@ -108,7 +108,7 @@ export const Footer = () => {
                   <p>
                     Creado por{" "}
                     <Link to="/" rel="nofollow">
-                      Pedidos
+                      RapiNASA
                     </Link>
                   </p>
                 </div>

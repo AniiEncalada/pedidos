@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-white.png";
 
 export const Nav = () => {
   useEffect(() => {

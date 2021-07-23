@@ -1,24 +1,29 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
-import { ActionButton } from "../../../components/Button";
-import { Input } from "../../../components/Input";
+import { ActionButton } from "components/Button";
+import { Input } from "components/Input";
+import { useYupValidationResolver } from "hooks/useYupValidationResolver";
+import { loginSchema } from "utils/validations";
 
 export const LoginForm = () => {
-  const { handleSubmit } = useForm();
+  const resolver = useYupValidationResolver(loginSchema);
+  const methods = useForm({ resolver });
+  const { handleSubmit } = methods;
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    console.log(`data`, data);
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="custom-form">
-      <div className="form-group">
-        <Input name="user" placeholder="Ingrese su usuario" />
-      </div>
-      <div className="form-group">
-        <Input type="password" name="password" placeholder="Ingrese su clave" />
-      </div>
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input name="email" placeholder="Ingrese su usuario" />
 
-      <ActionButton title="Iniciar sesión" />
-    </form>
+        <Input type="password" name="password" placeholder="Ingrese su clave" />
+
+        <ActionButton title="Iniciar sesión" />
+      </form>
+    </FormProvider>
   );
 };

@@ -8,7 +8,7 @@ export const Hero = () => {
       <div className="row space-100">
         <div className="col-lg-6 col-md-12 col-xs-12">
           <div className="contents">
-            <h2 className="head-title">Pedidos Web</h2>
+            <h2 className="head-title">RapiNASA</h2>
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse
               veniam ad odit velit, similique eos ipsam obcaecati dolorum amet.

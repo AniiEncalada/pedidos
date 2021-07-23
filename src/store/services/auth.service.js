@@ -9,3 +9,9 @@ export const getToken = async () => {
     console.error(error);
   }
 };
+
+const login = (data) => axios.post(`${API_PEDIDOS}/users/login`, data);
+
+export const authService = {
+  login,
+};
