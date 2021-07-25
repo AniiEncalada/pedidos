@@ -4,6 +4,7 @@ import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { PrivateRoute } from "router/PrivateRoute";
 import { history } from "utils/history";
 import { Home } from "../pages/Home";
+import { Product } from "pages/Product";
 import { Profile } from "../pages/Profile";
 
 export const AppRouter = () => {
@@ -16,6 +17,12 @@ export const AppRouter = () => {
           exact
           path="/perfil"
           component={Profile}
+          loggedIn={loggedIn}
+        />
+        <PrivateRoute
+          exact
+          path="/productos"
+          component={Product}
           loggedIn={loggedIn}
         />
         <Redirect to="/" />
