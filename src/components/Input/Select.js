@@ -1,11 +1,23 @@
+import classNames from "classnames";
 import React from "react";
+import _ from "lodash";
+import { useFormContext, useFormState } from "react-hook-form";
 
-export const Select = ({ name, register, options, ...rest }) => {
+export const Select = ({ name, className, options, ...rest }) => {
+  const { register } = useFormContext();
+  const { errors } = useFormState();
+  const selectError = _.get(errors, name);
+  const selectClass = classNames("form-select", className, {
+    "is-invalid": !!selectError,
+  });
   return (
-    <select className="form-select" {...register(name)} {...rest}>
-      {options.map((option) => (
-        <option value={option}>{option}</option>
-      ))}
-    </select>
+    <div className="form-group">
+      <select className={selectClass} {...register(name)} {...rest}>
+        {options.map((option) => (
+          <option value={option}>{option}</option>
+        ))}
+      </select>
+      <div className="invalid-feedback">{selectError?.message}</div>
+    </div>
   );
 };

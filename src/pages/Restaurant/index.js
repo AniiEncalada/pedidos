@@ -1,15 +1,10 @@
-import React, { Fragment, useState } from "react";
+import { RestaurantList } from "pages/Restaurant/RestaurantList";
+import React, { Fragment } from "react";
 
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { ProductList } from "pages/Product/ProductList";
-import { ActionButton } from "components/Button";
-import { Modal } from "components/Modal";
-import { ProductForm } from "pages/Product/ProductForm";
 
-export const Product = () => {
-  const [isShowing, setIsShowing] = useState(false);
-
+export const Restaurant = () => {
   return (
     <Fragment>
       <Header />
@@ -19,7 +14,7 @@ export const Product = () => {
             <div className="col-lg-12">
               <div className="section-header text-center">
                 <div>
-                  <h2 className="section-title">Productos</h2>
+                  <h2 className="section-title">Restaurantes</h2>
                   <div className="desc-text">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -34,24 +29,7 @@ export const Product = () => {
 
           <div className="row">
             <div className="col-lg-12">
-              <ActionButton
-                title="Agregar producto"
-                className="mb-4"
-                type="button"
-                onClick={() => setIsShowing(!isShowing)}
-              />
-
-              <Modal
-                isShowing={isShowing}
-                setIsShowing={setIsShowing}
-                centered
-                size="lg"
-              >
-                <ProductForm />
-              </Modal>
-            </div>
-            <div className="col-lg-12">
-              <ProductList />
+              <RestaurantList />
             </div>
           </div>
         </div>

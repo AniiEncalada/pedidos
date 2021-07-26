@@ -52,6 +52,11 @@ export const Nav = () => {
                 Productos
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link page-scroll" to="/restaurantes">
+                Restaurantes
+              </Link>
+            </li>
 
             {!loggedIn && (
               <li className="nav-item">

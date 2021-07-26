@@ -6,7 +6,7 @@ const initialState = {
   message: "",
   data: {},
   loggingIn: false,
-  loggedIn: false,
+  loggedIn: true,
 };
 
 export const auth = (state = initialState, payload) => {

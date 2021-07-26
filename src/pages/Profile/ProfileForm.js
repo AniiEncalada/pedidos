@@ -15,26 +15,18 @@ export const ProfileForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
           <div className="col-md-6">
-            <div className="form-group">
-              <Input name="name" placeholder="Nombres" />
-            </div>
+            <Input name="name" placeholder="Nombres" />
           </div>
           <div className="col-md-6">
-            <div className="form-group">
-              <Input name="lastname" placeholder="Apellidos" />
-            </div>
+            <Input name="lastname" placeholder="Apellidos" />
           </div>
         </div>
         <div className="row">
           <div className="col-md-6">
-            <div className="form-group">
-              <Input name="dni" placeholder="Cédula de identidad" />
-            </div>
+            <Input name="dni" placeholder="Cédula de identidad" />
           </div>
           <div className="col-md-6">
-            <div className="form-group">
-              <Input name="email" placeholder="Dirección de correo" />
-            </div>
+            <Input name="email" placeholder="Dirección de correo" />
           </div>
         </div>
         <ActionButton title="Actualizar" />
