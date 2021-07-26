@@ -997,7 +997,8 @@ form .form-group {
 
 form input[type="text"],
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form .form-select {
   min-height: 52px;
   padding: 0px 0 0 28px;
   font-size: 16px;
@@ -1015,6 +1016,17 @@ form .form-control:focus {
   outline: none;
   box-shadow: none;
   background: var(--grey);
+}
+
+form .form-select:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+  box-shadow: none;
+}
+
+form .pick_image {
+  border-style: dashed;
+  padding: 25px 25px 50px;
 }
 
 /* ==========================================================================

@@ -8,19 +8,21 @@ export const Modal = ({
   setIsShowing,
   title,
   children,
+  hiddenFooter,
   ...rest
 }) => {
   return (
     <ModalBootstrap
       show={isShowing}
       onHide={() => setIsShowing(!isShowing)}
+      animation={false}
       {...rest}
     >
       <ModalBootstrap.Header closeButton>
         <ModalBootstrap.Title>{title}</ModalBootstrap.Title>
       </ModalBootstrap.Header>
       <ModalBootstrap.Body>{children}</ModalBootstrap.Body>
-      <ModalBootstrap.Footer>
+      <ModalBootstrap.Footer hidden={hiddenFooter}>
         <ActionButton
           title="Cerrar"
           color="secondary"

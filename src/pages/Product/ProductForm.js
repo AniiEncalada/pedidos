@@ -1,9 +1,13 @@
+import { ActionButton } from "components/Button";
 import { Input, Select } from "components/Input";
+import { useYupValidationResolver } from "hooks/useYupValidationResolver";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { productSchema } from "utils/validations";
 
 export const ProductForm = () => {
-  const methods = useForm();
+  const resolver = useYupValidationResolver(productSchema);
+  const methods = useForm({ resolver });
   const { handleSubmit } = methods;
 
   const onSubmit = (data) => {};
@@ -32,7 +36,11 @@ export const ProductForm = () => {
         </div>
         <div className="row">
           <div className="col-md-6">
-            <Input name="tags" placeholder="Etiquetas" />
+            <Select
+              name="category"
+              placeholder="Seleccione una categoría"
+              options={["data", "datita"]}
+            />
           </div>
           <div className="col-md-6">
             <Input
@@ -55,7 +63,18 @@ export const ProductForm = () => {
             />
           </div>
         </div>
-        <Select name="category" options={["data", "datita"]} />
+
+        <Input name="tags" placeholder="Etiquetas" />
+
+        <Input
+          type="file"
+          name="image_product"
+          className="pick_image"
+          label="Imágen del producto"
+          accept="image/*"
+        />
+
+        <ActionButton title="Guardar Cambios" />
       </form>
     </FormProvider>
   );

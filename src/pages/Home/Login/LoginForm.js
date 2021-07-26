@@ -16,7 +16,6 @@ export const LoginForm = () => {
 
   const onSubmit = (data) => {
     dispatch(login(data));
-    console.log(`data`, data);
   };
 
   return (

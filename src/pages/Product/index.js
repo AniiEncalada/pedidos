@@ -42,10 +42,12 @@ export const Product = () => {
               />
 
               <Modal
+                title="Nuevo Producto"
                 isShowing={isShowing}
                 setIsShowing={setIsShowing}
                 centered
                 size="lg"
+                hiddenFooter
               >
                 <ProductForm />
               </Modal>

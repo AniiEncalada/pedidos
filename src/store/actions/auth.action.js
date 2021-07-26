@@ -8,15 +8,14 @@ export const login = (formData) => async (dispatch) => {
   try {
     dispatch(request());
     const { _id, token } = JSON.parse(ACCESS_TOKEN);
-    console.log(ACCESS_TOKEN);
     const { data } = await authService.login({
       ...formData,
       verify: _id,
       token,
     });
-    alerts.success(data.message);
-    history.push("/perfil");
     dispatch(success(data));
+    history.push("/perfil");
+    alerts.success(data.message);
   } catch (error) {
     alerts.warning(error.message);
     dispatch(failure(error));
