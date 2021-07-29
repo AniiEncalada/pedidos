@@ -24,15 +24,14 @@ export const Modal = ({
       <ModalBootstrap.Body>{children}</ModalBootstrap.Body>
       <ModalBootstrap.Footer hidden={hiddenFooter}>
         <ActionButton
-          title="Cerrar"
           color="secondary"
           onClick={() => setIsShowing(!isShowing)}
-        />
-        <ActionButton
-          title="Guardar Cambios"
-          type="button"
-          onClick={() => setIsShowing(!isShowing)}
-        />
+        >
+          Cerrar
+        </ActionButton>
+        <ActionButton type="button" onClick={() => setIsShowing(!isShowing)}>
+          Guardar Cambios
+        </ActionButton>
       </ModalBootstrap.Footer>
     </ModalBootstrap>
   );

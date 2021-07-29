@@ -298,6 +298,12 @@ button:focus {
   font-size: 14px;
 }
 
+.btn-icon {
+  padding: 7px 7px;
+  font-size: 12px;
+  min-width: 30px;
+}
+
 .clear {
   clear: both;
 }
@@ -1129,4 +1135,39 @@ form .pick_image {
 }
 .headroom--unpinned {
   transform: translateY(-100%);
+}
+
+/* ==========================================================================
+      Table
+      ========================================================================== */
+
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.image-table {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+
+.image-table img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.btn-table {
+  display: flex;
+  justify-content: center;
+  column-gap: 3px;
 }

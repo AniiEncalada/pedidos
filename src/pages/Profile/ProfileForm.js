@@ -29,7 +29,7 @@ export const ProfileForm = () => {
             <Input name="email" placeholder="Dirección de correo" />
           </div>
         </div>
-        <ActionButton title="Actualizar" />
+        <ActionButton>Actualizar</ActionButton>
       </form>
     </FormProvider>
   );

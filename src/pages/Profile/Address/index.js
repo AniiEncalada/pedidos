@@ -12,11 +12,12 @@ export const Address = () => {
   return (
     <Fragment>
       <ActionButton
-        title="Agregar dirección"
         className="mb-4"
         type="button"
         onClick={() => setIsShowing(!isShowing)}
-      />
+      >
+        Agregar dirección
+      </ActionButton>
 
       <AddressList />
       <Modal isShowing={isShowing} setIsShowing={setIsShowing} centered>

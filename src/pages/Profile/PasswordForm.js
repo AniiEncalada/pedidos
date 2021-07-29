@@ -26,7 +26,7 @@ export const PasswordForm = () => {
             placeholder="Confirmar clave"
           />
         </div>
-        <ActionButton title="Actualizar" />
+        <ActionButton>Actualizar</ActionButton>
       </form>
     </FormProvider>
   );

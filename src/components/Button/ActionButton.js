@@ -4,31 +4,40 @@ import classNames from "classnames";
 
 export const ActionButton = ({
   className,
-  title,
+  children,
   color,
   sm,
   lg,
   block,
+  icon,
   ...rest
 }) => {
   const actionButtonClass = classNames("btn", `btn-${color}`, className, {
     "btn-sm": sm,
     "btn-lg": lg,
     "btn-block": block,
+    "btn-icon": icon,
   });
 
   return (
     <button className={actionButtonClass} type="submit" {...rest}>
-      {title}
+      {children}
     </button>
   );
 };
 
 ActionButton.propTypes = {
-  title: PropTypes.string.isRequired,
   color: PropTypes.string,
+  sm: PropTypes.bool,
+  lg: PropTypes.bool,
+  block: PropTypes.bool,
+  icon: PropTypes.bool,
 };
 
 ActionButton.defaultProps = {
   color: "common",
+  sm: false,
+  lg: false,
+  block: false,
+  icon: false,
 };

@@ -2,7 +2,7 @@ import { Table } from "components/Table";
 import { tableConstant } from "pages/Product/tableConstant";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProduct } from "store/actions/product.action";
+import { getProducts } from "store/actions/product.action";
 
 export const ProductList = () => {
   const { data } = useSelector((state) => state.product);
@@ -10,7 +10,7 @@ export const ProductList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProduct());
+    dispatch(getProducts());
   }, [dispatch]);
 
   const handleEdit = (item) => {};

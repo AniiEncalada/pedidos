@@ -35,11 +35,12 @@ export const Product = () => {
           <div className="row">
             <div className="col-lg-12">
               <ActionButton
-                title="Agregar producto"
                 className="mb-4"
                 type="button"
                 onClick={() => setIsShowing(!isShowing)}
-              />
+              >
+                Agregar producto
+              </ActionButton>
 
               <Modal
                 title="Nuevo Producto"

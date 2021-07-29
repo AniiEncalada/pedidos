@@ -2,10 +2,10 @@ import { productService } from "store/services/product.service";
 import { PRODUCT_ACTIONS } from "utils/actionTypes";
 import { alerts } from "utils/alerts";
 
-export const getProduct = () => async (dispatch) => {
+export const getProducts = () => async (dispatch) => {
   try {
     dispatch(request());
-    const { data } = await productService.getProduct();
+    const { data } = await productService.getProducts();
     dispatch(success(data));
   } catch (error) {
     alerts.warning(error.message);

@@ -74,7 +74,7 @@ export const ProductForm = () => {
           accept="image/*"
         />
 
-        <ActionButton title="Guardar Cambios" />
+        <ActionButton>Guardar Cambios</ActionButton>
       </form>
     </FormProvider>
   );

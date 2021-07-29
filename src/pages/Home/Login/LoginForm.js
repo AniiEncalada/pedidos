@@ -25,7 +25,7 @@ export const LoginForm = () => {
 
         <Input type="password" name="password" placeholder="Ingrese su clave" />
 
-        <ActionButton title="Iniciar sesión" />
+        <ActionButton>Iniciar sesión</ActionButton>
       </form>
     </FormProvider>
   );
