@@ -5,7 +5,7 @@ import { Table } from "components/Table";
 import { getRestaurants } from "store/actions/resturant.action";
 
 export const RestaurantList = () => {
-  const { data } = useSelector((state) => state.product);
+  const { data } = useSelector((state) => state.restaurant);
 
   const dispatch = useDispatch();
 

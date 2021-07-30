@@ -30,6 +30,7 @@ export const saveProduct = (dataProduct) => async (dispatch) => {
     const { data } = await productService.saveProduct(dataProduct);
     dispatch(success(data));
     alerts.success(data.message);
+    dispatch(getProducts());
   } catch (error) {
     alerts.warning(error.message);
     dispatch(failure(error));

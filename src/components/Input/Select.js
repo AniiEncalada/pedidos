@@ -25,8 +25,8 @@ export const Select = ({ name, placeholder, className, options, ...rest }) => {
           </option>
         )}
         {options.map((option, index) => (
-          <option value={option} key={index}>
-            {option}
+          <option value={option.value} key={index}>
+            {option.label}
           </option>
         ))}
       </select>

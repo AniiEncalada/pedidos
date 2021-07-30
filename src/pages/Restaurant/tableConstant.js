@@ -1,10 +1,35 @@
+import { ActionButton } from "components/Button";
 import React from "react";
+import { API_PEDIDOS } from "utils/constants";
 
 export const tableConstant = (handleEdit) => {
   return [
     {
+      title: "",
+      render: (rowData) => (
+        <div className="image-table">
+          <img
+            className="rounded img-fluid"
+            src={`${API_PEDIDOS}${rowData.image_shop}`}
+            alt={rowData.name_shop}
+          />
+        </div>
+      ),
+    },
+    {
       title: "Nombre",
-      render: (rowData) => <span>{rowData.name_shop}</span>,
+      render: (rowData) => (
+        <p>
+          <span className="d-block">{rowData.name_shop}</span>
+          <span
+            className={`badge badge-${
+              rowData.active_shop ? "success" : "danger"
+            }`}
+          >
+            {rowData.active_shop ? "Activa" : "Inactiva"}
+          </span>
+        </p>
+      ),
     },
     {
       title: "Número de contacto",
@@ -17,14 +42,27 @@ export const tableConstant = (handleEdit) => {
     {
       title: "Dirección",
       render: (rowData) => (
-        <span>
-          {rowData.principal_st} y {rowData.secondary_st}
-        </span>
+        <p>
+          <span>{rowData.address_shop.principal_st}</span>
+          <span>{rowData.address_shop.secondary_st}</span>
+        </p>
       ),
     },
     {
       title: "Acciones",
-      render: (rowData) => <span></span>,
+      render: (rowData) => (
+        <div className="btn-table">
+          <ActionButton icon>
+            <i className="fas fa-eye" />
+          </ActionButton>
+          <ActionButton icon>
+            <i className="fas fa-edit" />
+          </ActionButton>
+          <ActionButton icon>
+            <i className="fas fa-trash" />
+          </ActionButton>
+        </div>
+      ),
     },
   ];
 };

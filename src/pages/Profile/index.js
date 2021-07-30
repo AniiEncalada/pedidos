@@ -7,9 +7,12 @@ import { ProfileForm } from "./ProfileForm";
 import { PasswordForm } from "./PasswordForm";
 import { Address } from "./Address";
 
-import avatar from "../../assets/images/profile.png";
+import { API_PEDIDOS } from "utils/constants";
+import { useSelector } from "react-redux";
 
 export const Profile = () => {
+  const { data } = useSelector((state) => state.auth);
+
   return (
     <Fragment>
       <Header />
@@ -43,7 +46,11 @@ export const Profile = () => {
             <div className="col-lg-1"></div>
 
             <div className="col-lg-4 col-md-12">
-              <img src={avatar} className="img-fluid" alt="" />
+              <img
+                src={`${API_PEDIDOS}/${data.photo_person}`}
+                className="img-fluid"
+                alt=""
+              />
             </div>
             <div className="col-lg-1"></div>
           </div>

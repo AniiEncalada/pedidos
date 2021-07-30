@@ -7,12 +7,20 @@ export const interceptors = () => {
       config.headers["Authorization"] = `Basic ${Buffer.from(AUTH).toString(
         "base64"
       )}`;
+
       if (config.method === "post" || config.method === "put") {
         if (!config.data) config.data = {};
         const accessToken = JSON.parse(ACCESS_TOKEN);
-        config.data.token = accessToken.token;
-        config.data.verify = accessToken._id;
-        config.data.type_query = 2;
+        if (config.data instanceof FormData) {
+          config.headers["Content-Type"] = "multipart/form-data";
+          config.data.append("token", accessToken.token);
+          config.data.append("verify", accessToken._id);
+          config.data.append("type_query", 2);
+        } else {
+          config.data.token = accessToken.token;
+          config.data.verify = accessToken._id;
+          config.data.type_query = 2;
+        }
       }
       return config;
     },

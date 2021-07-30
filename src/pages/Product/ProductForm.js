@@ -1,8 +1,11 @@
 import { ActionButton } from "components/Button";
 import { Input, Select } from "components/Input";
 import { useYupValidationResolver } from "hooks/useYupValidationResolver";
-import React from "react";
+import React, { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "store/actions/category.action";
+import { saveProduct } from "store/actions/product.action";
 import { productSchema } from "utils/validations";
 
 export const ProductForm = () => {
@@ -10,7 +13,25 @@ export const ProductForm = () => {
   const methods = useForm({ resolver });
   const { handleSubmit } = methods;
 
-  const onSubmit = (data) => {};
+  const { data: userData } = useSelector((state) => state.auth);
+  const options = useSelector((state) =>
+    state.category.data.map((item) => ({
+      value: item._id,
+      label: item.name_category,
+    }))
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  const onSubmit = (data) => {
+    data.shop = userData._id;
+    data.image_product = data.image_product[0];
+    dispatch(saveProduct(data));
+  };
 
   return (
     <FormProvider {...methods}>
@@ -23,6 +44,7 @@ export const ProductForm = () => {
             <Input name="cost_product" placeholder="Costo" />
           </div>
         </div>
+
         <div className="row">
           <div className="col-md-6">
             <Input name="measure_product" placeholder="Medida del producto" />
@@ -34,12 +56,13 @@ export const ProductForm = () => {
             />
           </div>
         </div>
+
         <div className="row">
           <div className="col-md-6">
             <Select
               name="category"
               placeholder="Seleccione una categoría"
-              options={["data", "datita"]}
+              options={options}
             />
           </div>
           <div className="col-md-6">
@@ -49,6 +72,7 @@ export const ProductForm = () => {
             />
           </div>
         </div>
+
         <div className="row">
           <div className="col-md-6">
             <Input
@@ -64,7 +88,7 @@ export const ProductForm = () => {
           </div>
         </div>
 
-        <Input name="tags" placeholder="Etiquetas" />
+        <Input name="tags_input" placeholder="Etiquetas" />
 
         <Input
           type="file"

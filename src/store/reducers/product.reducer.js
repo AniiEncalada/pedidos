@@ -23,9 +23,9 @@ export const product = (state = initialState, payload) => {
     case PRODUCT_ACTIONS.SAVE_PRODUCT_REQUEST:
       return { ...state, saving: true };
     case PRODUCT_ACTIONS.SAVE_PRODUCT_SUCCESS:
-      return { ...state, saving: false, ...payload.result };
+      return { ...state, saving: false };
     case PRODUCT_ACTIONS.SAVE_PRODUCT_FAILURE:
-      return { ...state, saving: false, ...payload.error };
+      return { ...state, saving: false };
 
     case PRODUCT_ACTIONS.UPDATE_PRODUCT_REQUEST:
       return { ...state, updating: true };

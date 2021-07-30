@@ -1,36 +1,7 @@
 import React from "react";
 import { AddressItem } from "./AddressItem";
 
-const addresses = [
-  {
-    main_street: "Incididunt eiusmod minim dolor magna.",
-    secondary_street: "Consectetur et Lorem",
-    house_number: "200-88",
-    phone: "0987648972",
-    reference: "Voluptate ullamco amet",
-  },
-  {
-    main_street: "Incididunt eiusmod minim dolor magna.",
-    secondary_street: "Consectetur et Lorem",
-    house_number: "200-88",
-    phone: "0987648972",
-    reference: "Voluptate ullamco amet",
-  },
-  {
-    main_street: "Incididunt eiusmod minim dolor magna.",
-    secondary_street: "Consectetur et Lorem",
-    house_number: "200-88",
-    phone: "0987648972",
-    reference: "Voluptate ullamco amet",
-  },
-  {
-    main_street: "Incididunt eiusmod minim dolor magna.",
-    secondary_street: "Consectetur et Lorem",
-    house_number: "200-88",
-    phone: "0987648972",
-    reference: "Voluptate ullamco amet",
-  },
-];
+const addresses = [];
 
 export const AddressList = () => {
   return (

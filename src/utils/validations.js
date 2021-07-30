@@ -61,7 +61,7 @@ export const productSchema = yup.object({
   measure_product: yup.string().required().trim(),
   stok_product: yup.number().required().min(0),
   category: yup.string().required().trim(),
-  tags: yup.string().required().trim(),
+  tags_input: yup.string().required().trim(),
   short_promotional_text_product: yup.string().trim(),
   description_product: yup.string().trim(),
   nutritional_value_product: yup.string().trim(),
