@@ -67,7 +67,14 @@ export const productSchema = yup.object({
   nutritional_value_product: yup.string().trim(),
   image_product: yup
     .mixed()
+    // .when("new_image_product", {
+    //   is:(new_image_product)=>
+    // })
     .requiredFile()
+    .fileSize(1024)
+    .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
+  new_image_product: yup
+    .mixed()
     .fileSize(1024)
     .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
 });

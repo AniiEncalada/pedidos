@@ -1035,6 +1035,16 @@ form .pick_image {
   padding: 25px 25px 50px;
 }
 
+.image-form {
+  height: 200px;
+  margin: auto;
+  width: 200px;
+}
+.image-form img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
 /* ==========================================================================
       Footer section
       ========================================================================== */

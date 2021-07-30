@@ -2,7 +2,7 @@ import { ActionButton } from "components/Button";
 import React from "react";
 import { API_PEDIDOS } from "utils/constants";
 
-export const tableConstant = (handleEdit) => {
+export const tableConstant = (handleEdit, handleRemove) => {
   return [
     {
       title: "",
@@ -47,10 +47,20 @@ export const tableConstant = (handleEdit) => {
           <ActionButton icon>
             <i className="fas fa-eye" />
           </ActionButton>
-          <ActionButton icon>
+          <ActionButton
+            icon
+            onClick={() => {
+              handleEdit(rowData);
+            }}
+          >
             <i className="fas fa-edit" />
           </ActionButton>
-          <ActionButton icon>
+          <ActionButton
+            icon
+            onClick={() => {
+              handleRemove(rowData._id);
+            }}
+          >
             <i className="fas fa-trash" />
           </ActionButton>
         </div>
