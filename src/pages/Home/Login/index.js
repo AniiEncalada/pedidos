@@ -4,7 +4,7 @@ import pedidos from "../../../assets/images/pedidos.jpg";
 
 export const Login = () => {
   return (
-    <section className="section">
+    <section className="section" id="login">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

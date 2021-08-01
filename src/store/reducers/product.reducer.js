@@ -30,16 +30,16 @@ export const product = (state = initialState, payload) => {
     case PRODUCT_ACTIONS.UPDATE_PRODUCT_REQUEST:
       return { ...state, updating: true };
     case PRODUCT_ACTIONS.UPDATE_PRODUCT_SUCCESS:
-      return { ...state, updating: false, ...payload.result };
+      return { ...state, updating: false };
     case PRODUCT_ACTIONS.UPDATE_PRODUCT_FAILURE:
-      return { ...state, updating: false, ...payload.error };
+      return { ...state, updating: false };
 
     case PRODUCT_ACTIONS.DELETE_PRODUCT_REQUEST:
       return { ...state, deleting: true };
     case PRODUCT_ACTIONS.DELETE_PRODUCT_SUCCESS:
-      return { ...state, deleting: false, ...payload.result };
+      return { ...state, deleting: false };
     case PRODUCT_ACTIONS.DELETE_PRODUCT_FAILURE:
-      return { ...state, deleting: false, ...payload.error };
+      return { ...state, deleting: false };
     default:
       return state;
   }

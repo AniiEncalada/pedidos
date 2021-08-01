@@ -54,6 +54,7 @@ export const updateProduct = (id, dataProduct) => async (dispatch) => {
     const { data } = await productService.updateProduct(id, dataProduct);
     dispatch(success(data));
     alerts.success(data.message);
+    dispatch(getProducts());
   } catch (error) {
     alerts.warning(error.message);
     dispatch(failure(error));

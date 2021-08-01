@@ -3,10 +3,12 @@ import React from "react";
 
 export const ModalAlert = ({ title, message, onClose, onConfirm }) => {
   return (
-    <div className="alert">
-      <h2>{title}</h2>
+    <div className="modal-alert">
+      <h5>{title}</h5>
       <p>{message}</p>
-      <ActionButton onClick={onClose}>Cancelar</ActionButton>
+      <ActionButton color="secondary" onClick={onClose} className="mr-1">
+        Cancelar
+      </ActionButton>
       <ActionButton
         onClick={() => {
           onConfirm();

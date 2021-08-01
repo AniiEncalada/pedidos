@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 import hamburguerImg from "../../assets/images/hamburguer.png";
 
 export const Hero = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
+
   return (
     <div className="container">
       <div className="row space-100">
@@ -15,22 +20,16 @@ export const Hero = () => {
               Consectetur?
             </p>
             <div className="header-button">
-              <a
-                href="https://rebrand.ly/slick-ud"
-                target="_blank"
-                rel="noopener noreferrer"
+              <HashLink
+                to={loggedIn ? "/perfil" : "#login"}
                 className="btn btn-border-filled"
               >
                 Ingresar
-              </a>
-              <a
-                href="https://rebrand.ly/slick-ud"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-border page-scroll"
-              >
+              </HashLink>
+
+              <Link to="#" className="btn btn-border page-scroll">
                 Conócenos
-              </a>
+              </Link>
             </div>
           </div>
         </div>

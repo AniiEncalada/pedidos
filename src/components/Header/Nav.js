@@ -4,6 +4,7 @@ import Headroom from "headroom.js";
 
 import logo from "../../assets/images/logo-white.png";
 import { useSelector } from "react-redux";
+import { HashLink } from "react-router-hash-link";
 
 export const Nav = () => {
   const { loggedIn } = useSelector((state) => state.auth);
@@ -60,9 +61,9 @@ export const Nav = () => {
 
             {!loggedIn && (
               <li className="nav-item">
-                <Link className="btn btn-singin" to="#login">
+                <HashLink to="#login" className="btn btn-singin">
                   Comenzar
-                </Link>
+                </HashLink>
               </li>
             )}
           </ul>

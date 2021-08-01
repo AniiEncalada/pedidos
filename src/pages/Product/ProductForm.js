@@ -22,7 +22,7 @@ export const ProductForm = ({ product = {} }) => {
     }))
   );
 
-  const optionsRestarant = useSelector((state) =>
+  const optionsRestaurant = useSelector((state) =>
     state.restaurant.data.map((item) => ({
       value: item._id,
       label: item.name_shop,
@@ -85,16 +85,16 @@ export const ProductForm = ({ product = {} }) => {
             <Select
               name="category"
               placeholder="Seleccione una categoría"
-              defaultValue={product.category}
               options={optionsCategory}
+              defaultValue={product.category || ""}
             />
           </div>
           <div className="col-md-6">
             <Select
               name="shop"
               placeholder="Seleccione un restaurant"
-              defaultValue={product.shop}
-              options={optionsRestarant}
+              options={optionsRestaurant}
+              defaultValue={product.shop || ""}
             />
           </div>
         </div>
@@ -115,16 +115,27 @@ export const ProductForm = ({ product = {} }) => {
             />
           </div>
         </div>
+
         <Input
           name="short_promotional_text_product"
           placeholder="Lema del producto"
           defaultValue={product.short_promotional_text_product}
         />
+
         <Input
           name="tags_input"
           placeholder="Etiquetas"
           defaultValue={product.tags && product.tags.toString()}
+          helpText="Ingrese las etiquetas que desee separadas de una coma."
         />
+
+        <Input
+          type="hidden"
+          name="required_image_product"
+          defaultValue={!product.image_product}
+          readOnly
+        />
+
         {product.image_product ? (
           <div className="row">
             <div className="col-md-4 image-form">
@@ -137,7 +148,7 @@ export const ProductForm = ({ product = {} }) => {
             <div className="col-md-8">
               <Input
                 type="file"
-                name="new_image_product"
+                name="image_product"
                 className="pick_image"
                 label="Imágen del producto"
                 accept="image/*"

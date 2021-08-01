@@ -18,7 +18,18 @@ export const tableConstant = (handleEdit, handleRemove) => {
     },
     {
       title: "Nombre",
-      render: (rowData) => <span>{rowData.name_product}</span>,
+      render: (rowData) => (
+        <p>
+          <span className="d-block">{rowData.name_product}</span>
+          <span
+            className={`badge badge-${
+              rowData.active_product ? "success" : "danger"
+            }`}
+          >
+            {rowData.active_product ? "Activo" : "Inactivo"}
+          </span>
+        </p>
+      ),
     },
     {
       title: "Costo",

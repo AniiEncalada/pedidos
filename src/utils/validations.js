@@ -65,16 +65,17 @@ export const productSchema = yup.object({
   short_promotional_text_product: yup.string().trim(),
   description_product: yup.string().trim(),
   nutritional_value_product: yup.string().trim(),
-  image_product: yup
-    .mixed()
-    // .when("new_image_product", {
-    //   is:(new_image_product)=>
-    // })
-    .requiredFile()
-    .fileSize(1024)
-    .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
-  new_image_product: yup
-    .mixed()
-    .fileSize(1024)
-    .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
+  required_image_product: yup.boolean(),
+  image_product: yup.mixed().when("required_image_product", {
+    is: true,
+    then: yup
+      .mixed()
+      .requiredFile()
+      .fileSize(1024)
+      .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
+    otherwise: yup
+      .mixed()
+      .fileSize(1024)
+      .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
+  }),
 });

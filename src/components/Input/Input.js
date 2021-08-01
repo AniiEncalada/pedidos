@@ -3,7 +3,7 @@ import { useFormContext, useFormState } from "react-hook-form";
 import classNames from "classnames";
 import _ from "lodash";
 
-export const Input = ({ name, label, className, ...rest }) => {
+export const Input = ({ name, label, className, helpText, ...rest }) => {
   const { register } = useFormContext();
   const { errors } = useFormState();
 
@@ -24,6 +24,11 @@ export const Input = ({ name, label, className, ...rest }) => {
         {...register(name)}
         {...rest}
       />
+      {helpText && (
+        <small id={`${name}-help`} className="form-text text-muted">
+          {helpText}
+        </small>
+      )}
       <div className="invalid-feedback">{inputError?.message}</div>
     </div>
   );

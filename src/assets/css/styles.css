@@ -136,7 +136,7 @@ a:not([href]):not([tabindex]):hover {
       ========================================================================== */
 .btn {
   font-size: 14px;
-  padding: 10px 30px;
+  padding: 10px 15px;
   border-radius: 4px;
   font-family: "Rubik", sans-serif;
   letter-spacing: 1px;
@@ -167,7 +167,6 @@ a:not([href]):not([tabindex]):hover {
   position: relative;
   z-index: 1;
   box-shadow: 0px 8px 9px 0px rgba(96, 94, 94, 0.17);
-  padding: 14px 15px;
 }
 
 .btn-light-bg {
@@ -1216,4 +1215,12 @@ td {
 .badge-danger {
   color: #fff;
   background-color: #dc3545;
+}
+
+/* ==========================================================================
+      Spinner
+      ========================================================================== */
+.custom-spinner {
+  text-align: center;
+  padding: 10px 10px;
 }

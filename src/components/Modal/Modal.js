@@ -19,7 +19,7 @@ export const Modal = ({
       {...rest}
     >
       <ModalBootstrap.Header closeButton>
-        <ModalBootstrap.Title>{title}</ModalBootstrap.Title>
+        <ModalBootstrap.Title className="h6">{title}</ModalBootstrap.Title>
       </ModalBootstrap.Header>
       <ModalBootstrap.Body>{children}</ModalBootstrap.Body>
       <ModalBootstrap.Footer hidden={hiddenFooter}>

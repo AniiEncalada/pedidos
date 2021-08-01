@@ -26,7 +26,7 @@ export const ProductList = () => {
     confirmAlert({
       customUI: ({ onClose }) => (
         <ModalAlert
-          title="Confirmar"
+          title="Eliminar Producto"
           message="¿Está seguro de continuar?"
           onClose={onClose}
           onConfirm={() => dispatch(deleteProduct(id))}

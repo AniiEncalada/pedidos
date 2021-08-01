@@ -43,8 +43,10 @@ export const tableConstant = (handleEdit) => {
       title: "Dirección",
       render: (rowData) => (
         <p>
-          <span>{rowData.address_shop.principal_st}</span>
-          <span>{rowData.address_shop.secondary_st}</span>
+          <span className="d-block">{rowData.address_shop.principal_st}</span>
+          <span className="text-muted">
+            {rowData.address_shop.secondary_st}
+          </span>
         </p>
       ),
     },

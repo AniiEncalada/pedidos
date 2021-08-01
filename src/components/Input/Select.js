@@ -3,7 +3,14 @@ import React from "react";
 import _ from "lodash";
 import { useFormContext, useFormState } from "react-hook-form";
 
-export const Select = ({ name, placeholder, className, options, ...rest }) => {
+export const Select = ({
+  name,
+  placeholder,
+  className,
+  options,
+  helpText,
+  ...rest
+}) => {
   const { register } = useFormContext();
   const { errors } = useFormState();
   const selectError = _.get(errors, name);
@@ -11,14 +18,11 @@ export const Select = ({ name, placeholder, className, options, ...rest }) => {
     "is-invalid": !!selectError,
   });
 
+  console.log(`rest.defaultValue`, rest.defaultValue);
+
   return (
     <div className="form-group">
-      <select
-        className={selectClass}
-        {...register(name)}
-        defaultValue=""
-        {...rest}
-      >
+      <select className={selectClass} {...register(name)} {...rest}>
         {placeholder && (
           <option value="" disabled>
             {placeholder}
@@ -30,6 +34,11 @@ export const Select = ({ name, placeholder, className, options, ...rest }) => {
           </option>
         ))}
       </select>
+      {helpText && (
+        <small id={`${name}-help`} className="form-text text-muted">
+          {helpText}
+        </small>
+      )}
       <div className="invalid-feedback">{selectError?.message}</div>
     </div>
   );
