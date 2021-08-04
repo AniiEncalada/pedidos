@@ -18,8 +18,6 @@ export const Select = ({
     "is-invalid": !!selectError,
   });
 
-  console.log(`rest.defaultValue`, rest.defaultValue);
-
   return (
     <div className="form-group">
       <select className={selectClass} {...register(name)} {...rest}>

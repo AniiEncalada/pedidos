@@ -6,11 +6,11 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "store/actions/category.action";
 import { saveProduct, updateProduct } from "store/actions/product.action";
-import { getRestaurants } from "store/actions/resturant.action";
+import { getRestaurants } from "store/actions/restaurant.action";
 import { API_PEDIDOS } from "utils/constants";
 import { productSchema } from "utils/validations";
 
-export const ProductForm = ({ product = {} }) => {
+export const ProductForm = ({ product = {}, setIsShowing }) => {
   const resolver = useYupValidationResolver(productSchema);
   const methods = useForm({ resolver });
   const { handleSubmit } = methods;
@@ -37,10 +37,12 @@ export const ProductForm = ({ product = {} }) => {
   }, [dispatch]);
 
   const onSubmit = (data) => {
-    data.image_product = data.image_product[0];
+    if (data.image_product[0]) data.image_product = data.image_product[0];
+
     product._id
       ? dispatch(updateProduct(product._id, data))
       : dispatch(saveProduct(data));
+    setIsShowing(false);
   };
 
   return (

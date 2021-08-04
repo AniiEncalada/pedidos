@@ -50,7 +50,7 @@ export const Product = () => {
                 size="lg"
                 hiddenFooter
               >
-                <ProductForm />
+                <ProductForm setIsShowing={setIsShowing} />
               </Modal>
             </div>
             <div className="col-lg-12">

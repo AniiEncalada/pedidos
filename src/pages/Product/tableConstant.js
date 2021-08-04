@@ -2,7 +2,7 @@ import { ActionButton } from "components/Button";
 import React from "react";
 import { API_PEDIDOS } from "utils/constants";
 
-export const tableConstant = (handleEdit, handleRemove) => {
+export const tableConstant = (handleEdit, handleToggle) => {
   return [
     {
       title: "",
@@ -55,9 +55,9 @@ export const tableConstant = (handleEdit, handleRemove) => {
       title: "Acciones",
       render: (rowData) => (
         <div className="btn-table">
-          <ActionButton icon>
+          {/* <ActionButton icon>
             <i className="fas fa-eye" />
-          </ActionButton>
+          </ActionButton> */}
           <ActionButton
             icon
             onClick={() => {
@@ -69,10 +69,10 @@ export const tableConstant = (handleEdit, handleRemove) => {
           <ActionButton
             icon
             onClick={() => {
-              handleRemove(rowData._id);
+              handleToggle(rowData._id);
             }}
           >
-            <i className="fas fa-trash" />
+            <i className="fas fa-toggle-on" />
           </ActionButton>
         </div>
       ),

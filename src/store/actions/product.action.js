@@ -2,10 +2,10 @@ import { productService } from "store/services/product.service";
 import { PRODUCT_ACTIONS } from "utils/actionTypes";
 import { alerts } from "utils/alerts";
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (filter) => async (dispatch) => {
   try {
     dispatch(request());
-    const { data } = await productService.getProducts();
+    const { data } = await productService.getProducts(filter);
     dispatch(success(data));
   } catch (error) {
     alerts.warning(error.message);
@@ -71,25 +71,26 @@ export const updateProduct = (id, dataProduct) => async (dispatch) => {
   }
 };
 
-//Delete product
-export const deleteProduct = (id, dataProduct) => async (dispatch) => {
+//Toggle product
+export const toggleProduct = (id, filter) => async (dispatch) => {
   try {
     dispatch(request());
-    const { data } = await productService.deleteProduct(id, dataProduct);
+    const { data } = await productService.toggleProduct(id);
     dispatch(success(data));
     alerts.success(data.message);
+    dispatch(getProducts(filter));
   } catch (error) {
     alerts.warning(error.message);
     dispatch(failure(error));
   }
 
   function request() {
-    return { type: PRODUCT_ACTIONS.DELETE_PRODUCT_REQUEST };
+    return { type: PRODUCT_ACTIONS.TOGGLE_PRODUCT_REQUEST };
   }
   function success(result) {
-    return { type: PRODUCT_ACTIONS.DELETE_PRODUCT_SUCCESS, result };
+    return { type: PRODUCT_ACTIONS.TOGGLE_PRODUCT_SUCCESS, result };
   }
   function failure(error) {
-    return { type: PRODUCT_ACTIONS.DELETE_PRODUCT_FAILURE, error };
+    return { type: PRODUCT_ACTIONS.TOGGLE_PRODUCT_FAILURE, error };
   }
 };

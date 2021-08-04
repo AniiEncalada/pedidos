@@ -2,7 +2,7 @@ import { ActionButton } from "components/Button";
 import React from "react";
 import { API_PEDIDOS } from "utils/constants";
 
-export const tableConstant = (handleEdit) => {
+export const tableConstant = (handleEdit, handleToggle) => {
   return [
     {
       title: "",
@@ -43,9 +43,9 @@ export const tableConstant = (handleEdit) => {
       title: "Dirección",
       render: (rowData) => (
         <p>
-          <span className="d-block">{rowData.address_shop.principal_st}</span>
+          <span className="d-block">{rowData.address_shop?.principal_st}</span>
           <span className="text-muted">
-            {rowData.address_shop.secondary_st}
+            {rowData.address_shop?.secondary_st}
           </span>
         </p>
       ),
@@ -54,14 +54,24 @@ export const tableConstant = (handleEdit) => {
       title: "Acciones",
       render: (rowData) => (
         <div className="btn-table">
-          <ActionButton icon>
+          {/* <ActionButton icon>
             <i className="fas fa-eye" />
-          </ActionButton>
-          <ActionButton icon>
+          </ActionButton> */}
+          <ActionButton
+            icon
+            onClick={() => {
+              handleEdit(rowData);
+            }}
+          >
             <i className="fas fa-edit" />
           </ActionButton>
-          <ActionButton icon>
-            <i className="fas fa-trash" />
+          <ActionButton
+            icon
+            onClick={() => {
+              handleToggle(rowData._id);
+            }}
+          >
+            <i className="fas fa-toggle-on" />
           </ActionButton>
         </div>
       ),

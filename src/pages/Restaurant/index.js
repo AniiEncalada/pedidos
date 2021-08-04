@@ -1,10 +1,15 @@
+import { ActionButton } from "components/Button";
+import { Modal } from "components/Modal";
+import { RestaurantForm } from "pages/Restaurant/RestaurantForm";
 import { RestaurantList } from "pages/Restaurant/RestaurantList";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 
 export const Restaurant = () => {
+  const [isShowing, setIsShowing] = useState(false);
+
   return (
     <Fragment>
       <Header />
@@ -28,6 +33,26 @@ export const Restaurant = () => {
           </div>
 
           <div className="row">
+            <div className="col-lg-12">
+              <ActionButton
+                className="mb-4"
+                type="button"
+                onClick={() => setIsShowing(!isShowing)}
+              >
+                Agregar restaurante
+              </ActionButton>
+
+              <Modal
+                title="Nuevo Restaurante"
+                isShowing={isShowing}
+                setIsShowing={setIsShowing}
+                centered
+                size="lg"
+                hiddenFooter
+              >
+                <RestaurantForm setIsShowing={setIsShowing} />
+              </Modal>
+            </div>
             <div className="col-lg-12">
               <RestaurantList />
             </div>

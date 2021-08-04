@@ -34,11 +34,11 @@ export const product = (state = initialState, payload) => {
     case PRODUCT_ACTIONS.UPDATE_PRODUCT_FAILURE:
       return { ...state, updating: false };
 
-    case PRODUCT_ACTIONS.DELETE_PRODUCT_REQUEST:
+    case PRODUCT_ACTIONS.TOGGLE_PRODUCT_REQUEST:
       return { ...state, deleting: true };
-    case PRODUCT_ACTIONS.DELETE_PRODUCT_SUCCESS:
+    case PRODUCT_ACTIONS.TOGGLE_PRODUCT_SUCCESS:
       return { ...state, deleting: false };
-    case PRODUCT_ACTIONS.DELETE_PRODUCT_FAILURE:
+    case PRODUCT_ACTIONS.TOGGLE_PRODUCT_FAILURE:
       return { ...state, deleting: false };
     default:
       return state;
