@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Router, Switch, Redirect, Route } from "react-router-dom";
 import { PrivateRoute } from "router/PrivateRoute";
 import { history } from "utils/history";
@@ -7,9 +7,25 @@ import { Home } from "../pages/Home";
 import { Product } from "pages/Product";
 import { Profile } from "../pages/Profile";
 import { Restaurant } from "pages/Restaurant";
+import { currentUser } from "store/actions/auth.action";
+import { Spinner } from "components/ContentLoader";
 
 export const AppRouter = () => {
-  const { loggedIn } = useSelector((state) => state.auth);
+  const { loggingIn, loggedIn } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+
+  if (loggingIn)
+    return (
+      <div className="center-content">
+        <Spinner />
+      </div>
+    );
+
   return (
     <Router history={history}>
       <Switch>

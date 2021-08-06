@@ -1,12 +1,10 @@
 import { ActionButton } from "components/Button";
 import { Input, Select } from "components/Input";
 import { useYupValidationResolver } from "hooks/useYupValidationResolver";
-import React, { useEffect } from "react";
+import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "store/actions/category.action";
 import { saveProduct, updateProduct } from "store/actions/product.action";
-import { getRestaurants } from "store/actions/restaurant.action";
 import { API_PEDIDOS } from "utils/constants";
 import { productSchema } from "utils/validations";
 
@@ -31,13 +29,11 @@ export const ProductForm = ({ product = {}, setIsShowing }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getRestaurants());
-  }, [dispatch]);
-
   const onSubmit = (data) => {
     if (data.image_product[0]) data.image_product = data.image_product[0];
+    else data.image_product = product.image_product;
+
+    data.tags_input = `,${data.tags_input}`;
 
     product._id
       ? dispatch(updateProduct(product._id, data))

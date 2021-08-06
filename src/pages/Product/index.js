@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
@@ -6,9 +6,19 @@ import { ProductList } from "pages/Product/ProductList";
 import { ActionButton } from "components/Button";
 import { Modal } from "components/Modal";
 import { ProductForm } from "pages/Product/ProductForm";
+import { getCategories } from "store/actions/category.action";
+import { getRestaurants } from "store/actions/restaurant.action";
+import { useDispatch } from "react-redux";
 
 export const Product = () => {
   const [isShowing, setIsShowing] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getRestaurants());
+  }, [dispatch]);
 
   return (
     <Fragment>

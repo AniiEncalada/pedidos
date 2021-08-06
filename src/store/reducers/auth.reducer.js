@@ -5,6 +5,7 @@ const initialState = {
   statusstr: "",
   message: "",
   data: {
+    address: [],
     active_person: false,
     _id: "",
     first_name_person: "",
@@ -31,7 +32,7 @@ const initialState = {
     created_person: "",
     __v: 0,
   },
-  loggingIn: false,
+  loggingIn: !!localStorage.getItem("user"),
   loggedIn: false,
 };
 
@@ -40,9 +41,26 @@ export const auth = (state = initialState, payload) => {
     case AUTH_ACTIONS.LOGIN_REQUEST:
       return { ...state, loggingIn: true };
     case AUTH_ACTIONS.LOGIN_SUCCESS:
-      return { ...state, loggingIn: false, loggedIn: true, ...payload.result };
+      return {
+        ...state,
+        loggingIn: false,
+        loggedIn: true,
+        ...payload.result,
+        data: {
+          ...state.data,
+          ...payload.result.data,
+          account: {
+            ...state.data.account,
+            ...payload.result.data.account,
+          },
+        },
+      };
     case AUTH_ACTIONS.LOGIN_FAILURE:
       return { ...state, loggingIn: false, ...payload.error };
+
+    case AUTH_ACTIONS.LOGOUT:
+      return { ...state, loggingIn: false, loggedIn: false };
+
     default:
       return state;
   }

@@ -82,19 +82,25 @@ export const productSchema = yup.object({
 
 export const restaurantSchema = yup.object({
   name_shop: yup.string().required().trim(),
-  catchword_shop: yup.string().trim(),
-  promotional_text_shop: yup.string().trim(),
   phone_shop: yup.string().required().trim(),
   email_shop: yup.string().required().email().trim(),
+  country_address: yup.string().required().trim(),
+  province_address: yup.string().required().trim(),
+  canton_address: yup.string().required().trim(),
+  city_address: yup.string().required().trim(),
+  main_street_address: yup.string().required().trim(),
+  secondary_street_address: yup.string().trim(),
+  promotional_text_shop: yup.string().trim(),
+  catchword_shop: yup.string().trim(),
   bank_shop: yup.string().trim(),
   bank_account_shop: yup.string().trim(),
   bank_account_owner_shop: yup.string().trim(),
-  principal_st: yup.string().trim(),
-  secondary_st: yup.string().trim(),
-  latitude: yup.string().trim(),
-  longitude: yup.string().trim(),
+  image_shop: yup
+    .mixed()
+    .fileSize(1024)
+    .fileType(VALIDATIONS.SUPPORTED_IMAGE_FORMATS),
   required_image_shop: yup.boolean(),
-  image_shop: yup.mixed().when("required_image_shop", {
+  image_profile_shop: yup.mixed().when("required_image_shop", {
     is: true,
     then: yup
       .mixed()

@@ -97,6 +97,13 @@ a:not([href]):not([tabindex]):hover {
   background: #3c9cfd !important;
 }
 
+.center-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ==========================================================================
       Section Title
       ========================================================================== */

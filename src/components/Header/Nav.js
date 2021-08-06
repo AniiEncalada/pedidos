@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 
 import logo from "../../assets/images/logo-white.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
+import { logout } from "store/actions/auth.action";
 
 export const Nav = () => {
   const { loggedIn } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     headroom.init();
@@ -42,7 +46,6 @@ export const Nav = () => {
                 Principal
               </Link>
             </li>
-
             <li className="nav-item">
               <Link className="nav-link page-scroll" to="/perfil">
                 Perfil
@@ -58,14 +61,21 @@ export const Nav = () => {
                 Restaurantes
               </Link>
             </li>
-
-            {!loggedIn && (
-              <li className="nav-item">
+            <li className="nav-item">
+              {!loggedIn ? (
                 <HashLink to="#login" className="btn btn-singin">
                   Comenzar
                 </HashLink>
-              </li>
-            )}
+              ) : (
+                <Link
+                  className="nav-link page-scroll"
+                  to="/"
+                  onClick={() => dispatch(logout())}
+                >
+                  Cerrar Sesión
+                </Link>
+              )}
+            </li>
           </ul>
         </div>
       </div>
