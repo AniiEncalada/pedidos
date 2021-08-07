@@ -46,21 +46,31 @@ export const Nav = () => {
                 Principal
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link page-scroll" to="/perfil">
                 Perfil
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link page-scroll" to="/productos">
                 Productos
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link page-scroll" to="/restaurantes">
                 Restaurantes
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link className="nav-link page-scroll" to="/ordenes">
+                Órdenes
+              </Link>
+            </li>
+
             <li className="nav-item">
               {!loggedIn ? (
                 <HashLink to="#login" className="btn btn-singin">

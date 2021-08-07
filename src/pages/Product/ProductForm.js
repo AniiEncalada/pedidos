@@ -31,7 +31,7 @@ export const ProductForm = ({ product = {}, setIsShowing }) => {
 
   const onSubmit = (data) => {
     if (data.image_product[0]) data.image_product = data.image_product[0];
-    else data.image_product = product.image_product;
+    else data.image_product = product.image_product || "";
 
     data.tags_input = `,${data.tags_input}`;
 

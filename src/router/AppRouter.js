@@ -9,6 +9,7 @@ import { Profile } from "../pages/Profile";
 import { Restaurant } from "pages/Restaurant";
 import { currentUser } from "store/actions/auth.action";
 import { Spinner } from "components/ContentLoader";
+import { Order } from "pages/Order";
 
 export const AppRouter = () => {
   const { loggingIn, loggedIn } = useSelector((state) => state.auth);
@@ -46,6 +47,12 @@ export const AppRouter = () => {
           exact
           path="/restaurantes"
           component={Restaurant}
+          loggedIn={loggedIn}
+        />
+        <PrivateRoute
+          exact
+          path="/ordenes"
+          component={Order}
           loggedIn={loggedIn}
         />
         <Redirect to="/" />

@@ -5,8 +5,15 @@ import { auth } from "./auth.reducer";
 import { product } from "./product.reducer";
 import { restaurant } from "./restaurant.reducer";
 import { category } from "./category.reducer";
+import { order } from "./order.reducer";
 
-const appReducer = combineReducers({ auth, product, restaurant, category });
+const appReducer = combineReducers({
+  auth,
+  product,
+  restaurant,
+  category,
+  order,
+});
 
 const reducer = (state, action) => {
   if (action.type === AUTH_ACTIONS.LOGOUT) {
