@@ -20,8 +20,14 @@ export const Address = () => {
       </ActionButton>
 
       <AddressList />
-      <Modal isShowing={isShowing} setIsShowing={setIsShowing} centered>
-        <AddressForm />
+
+      <Modal
+        isShowing={isShowing}
+        setIsShowing={setIsShowing}
+        centered
+        hiddenFooter
+      >
+        <AddressForm setIsShowing={setIsShowing} />
       </Modal>
     </Fragment>
   );

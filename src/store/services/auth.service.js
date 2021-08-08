@@ -12,6 +12,13 @@ export const getToken = async () => {
 
 const login = (data) => axios.post(`${API_PEDIDOS}/users/login`, data);
 
+const getAddresses = () => axios.post(`${API_PEDIDOS}/users/address`);
+
+const saveAddress = (data) =>
+  axios.post(`${API_PEDIDOS}/users/add/address`, data);
+
 export const authService = {
   login,
+  getAddresses,
+  saveAddress,
 };

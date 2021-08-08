@@ -61,6 +61,64 @@ export const auth = (state = initialState, payload) => {
     case AUTH_ACTIONS.LOGOUT:
       return { ...state, loggingIn: false, loggedIn: false };
 
+    case AUTH_ACTIONS.GET_ADDRESSES_REQUEST:
+      return { ...state, address: { ...state.address, loading: true } };
+    case AUTH_ACTIONS.GET_ADDRESSES_SUCCESS:
+      return {
+        ...state,
+        address: { ...state.address, loading: false, ...payload.result },
+      };
+    case AUTH_ACTIONS.GET_ADDRESSES_FAILURE:
+      return {
+        ...state,
+        address: { ...state.address, loading: false, ...payload.error },
+      };
+
+    case AUTH_ACTIONS.SAVE_ADDRESS_REQUEST:
+      return { ...state, address: { ...state.address, saving: true } };
+    case AUTH_ACTIONS.SAVE_ADDRESS_SUCCESS:
+      return { ...state, address: { ...state.address, saving: false } };
+    case AUTH_ACTIONS.SAVE_ADDRESS_FAILURE:
+      return { ...state, address: { ...state.address, saving: false } };
+
+    default:
+      return state;
+  }
+};
+
+const initialStateAddress = {
+  status: "",
+  statusstr: "",
+  message: "",
+  data: [],
+  loading: false,
+  saving: false,
+};
+
+export const address = (state = initialStateAddress, payload) => {
+  switch (payload.type) {
+    case AUTH_ACTIONS.GET_ADDRESSES_REQUEST:
+      return { ...state, loading: true };
+    case AUTH_ACTIONS.GET_ADDRESSES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        ...payload.result,
+      };
+    case AUTH_ACTIONS.GET_ADDRESSES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        ...payload.error,
+      };
+
+    case AUTH_ACTIONS.SAVE_ADDRESS_REQUEST:
+      return { ...state, saving: true };
+    case AUTH_ACTIONS.SAVE_ADDRESS_SUCCESS:
+      return { ...state, saving: false };
+    case AUTH_ACTIONS.SAVE_ADDRESS_FAILURE:
+      return { ...state, saving: false };
+
     default:
       return state;
   }

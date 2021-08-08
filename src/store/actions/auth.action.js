@@ -50,3 +50,47 @@ export const logout = () => async (dispatch) => {
     type: AUTH_ACTIONS.LOGOUT,
   });
 };
+
+export const getAddresses = () => async (dispatch) => {
+  try {
+    dispatch(request());
+    const { data } = await authService.getAddresses();
+    dispatch(success(data));
+  } catch (error) {
+    alerts.warning(error.message);
+    dispatch(failure(error));
+  }
+
+  function request() {
+    return { type: AUTH_ACTIONS.GET_ADDRESSES_REQUEST };
+  }
+  function success(result) {
+    return { type: AUTH_ACTIONS.GET_ADDRESSES_SUCCESS, result };
+  }
+  function failure(error) {
+    return { type: AUTH_ACTIONS.GET_ADDRESSES_FAILURE, error };
+  }
+};
+
+export const saveAddress = (dataForm) => async (dispatch) => {
+  try {
+    dispatch(request());
+    const { data } = await authService.saveAddress(dataForm);
+    dispatch(success(data));
+    alerts.success(data.message);
+    dispatch(getAddresses());
+  } catch (error) {
+    alerts.warning(error.message);
+    dispatch(failure(error));
+  }
+
+  function request() {
+    return { type: AUTH_ACTIONS.SAVE_ADDRESS_REQUEST };
+  }
+  function success(result) {
+    return { type: AUTH_ACTIONS.SAVE_ADDRESS_SUCCESS, result };
+  }
+  function failure(error) {
+    return { type: AUTH_ACTIONS.SAVE_ADDRESS_FAILURE, error };
+  }
+};

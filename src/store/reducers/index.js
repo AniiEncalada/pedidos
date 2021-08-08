@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { AUTH_ACTIONS } from "utils/actionTypes";
 
-import { auth } from "./auth.reducer";
+import { auth, address } from "./auth.reducer";
 import { product } from "./product.reducer";
 import { restaurant } from "./restaurant.reducer";
 import { category } from "./category.reducer";
@@ -9,6 +9,7 @@ import { order } from "./order.reducer";
 
 const appReducer = combineReducers({
   auth,
+  address,
   product,
   restaurant,
   category,

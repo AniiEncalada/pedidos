@@ -55,6 +55,21 @@ export const loginSchema = yup.object({
   password: yup.string().required(),
 });
 
+export const addressSchema = yup.object({
+  name_address: yup.string().required().trim(),
+  country_address: yup.string().required().trim(),
+  province_address: yup.string().required().trim(),
+  canton_address: yup.string().required().trim(),
+  city_address: yup.string().required().trim(),
+  main_street_address: yup.string().required().trim(),
+  secondary_street_address: yup.string().trim(),
+  parish_address: yup.string().trim(),
+  house_number_address: yup.string().trim(),
+  reference_address: yup.string().trim(),
+  latitude_address: yup.string().trim(),
+  longitude_address: yup.string().trim(),
+});
+
 export const productSchema = yup.object({
   name_product: yup.string().required().trim(),
   cost_product: yup.number().required().min(0),
